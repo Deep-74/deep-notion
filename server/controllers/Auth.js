@@ -2,9 +2,10 @@ const User=require("../models/User")
 const OTP=require("../models/OTP")
 const otpGenerator=require("otp-generator")
 const jwt=require("jsonwebtoken")
+const bcrypt=require("bcrypt")
 require("dotenv").config()
 
-exports.sendOTP=async(req,res)=>{
+exports.sendOTP=async(req,res)=>{ 
     try{
         const{email}=req.body;
     const checkUserPresent=await User.findOne({email});
@@ -65,10 +66,10 @@ exports.signUp=async(req,res)=>{
       accountType,
       contactNumber,
       otp
-   }=req.body;
+   } = req.body;
 
 
-if(!firstName || !lastName||!email||!password||!confirmPassword||!otp){
+if(!firstName || !lastName ||!email||!password||!confirmPassword||!otp){
     return res.status(403).json({
         success:false,
         message:"All fileds are required"
@@ -200,3 +201,5 @@ exports.login =async(req,res)=>{
      })
     }
 }
+
+

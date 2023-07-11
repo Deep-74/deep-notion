@@ -44,3 +44,5 @@ exports.createSubSection =async (req,res)=>{
        })
     }
 }
+//update section
+// delete section

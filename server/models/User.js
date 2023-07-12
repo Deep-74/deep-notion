@@ -6,7 +6,7 @@ const userSchema = new mongoose.Schema(
   {
     // Define the name field with type String, required, and trimmed
     firstName: {
-      type: String,
+      type: String, 
       required: true,
       trim: true,
     },
